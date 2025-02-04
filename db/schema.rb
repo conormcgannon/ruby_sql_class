@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema[7.1].define(version: 2025_02_04_202413) do
   create_table "activities", force: :cascade do |t|
-    t.integer "activity_ID"
     t.string "occured_at"
     t.string "notes"
     t.integer "salesperson_id"
@@ -22,7 +21,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_04_202413) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.integer "company_id"
+    t.string "company_name"
+    t.string "city"
+    t.string "state"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
