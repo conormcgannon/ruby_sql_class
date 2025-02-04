@@ -19,19 +19,52 @@ Salesperson.destroy_all
 # 1a. check out the schema file
 # 1b. check out the model file
 
+
+
 # 2. insert 1-2 rows in salespeople table.
 
-# 3. write code to display how many salespeople rows are in the database
+new_salesperson = Salesperson.new
+new_salesperson["first_name"] = "Conor"
+new_salesperson["last_name"] = "McGannon"
+new_salesperson["email"] = "conor@mcgannon.com"
+new_salesperson.save
 
+new_salesperson = Salesperson.new
+new_salesperson["first_name"] = "John"
+new_salesperson["last_name"] = "Doe"
+new_salesperson["email"] = "John@doe.com"
+new_salesperson.save
+
+#puts new_salesperson.inspect
+# 3. write code to display how many salespeople rows are in the database
+puts "There are #{Salesperson.all.count} salespeople"
 # ---------------------------------
 # Salespeople: 2
 
 # 4. modify/update column data for a row in the salespeople table.
+
+conor = Salesperson.find_by ({"first_name" => "Conor"}) #assigns conor's details to "conor"
+conor["email"] = "conmcgannon@yahoo.com"
+conor.save
+#puts conor.inspect
+
 
 # CHALLENGE:
 # 5. write code to display each salesperson's full name
 
 # ---------------------------------
 # Salespeople: 2
-# Ben Block
-# Brian Eng
+first_name = conor["first_name"] #first_name = conor's assigned first name
+last_name = conor["last_name"]
+name = "#{first_name} #{last_name}"
+#puts name
+
+#write a loop
+salespeople = Salesperson.all
+
+for boing in salespeople
+    first_name = boing["first_name"]
+    last_name = boing["last_name"]
+    name = "#{first_name} #{last_name}"
+    puts name
+end

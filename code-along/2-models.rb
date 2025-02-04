@@ -74,3 +74,6 @@ puts oura.inspect
 
 
 # 7. delete a row
+
+oura.destroy
+puts "California companies: #{cali_companies.count}"
